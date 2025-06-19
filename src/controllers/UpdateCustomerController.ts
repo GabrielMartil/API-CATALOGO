@@ -1,6 +1,5 @@
 import { FastifyRequest, FastifyReply } from "fastify";
 import prismaClient from "../prisma";
-import { Status } from "@prisma/client";
 
 interface UpdateCustomerProps {
   id: string;
