@@ -37,16 +37,16 @@ enum Status {
 }
 
 model Configuracao {
-  id               String  @id @default(auto()) @map("_id") @db.ObjectId
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
   name_loja        String
   whatsapp_num     String
   instagram_name   String
   whatsapp_status  Status
   instagram_status Status
+  link_catalogo    String?
+  link_whatsapp    String?
   created_at       DateTime @default(now())
   updated_at       DateTime @updatedAt
 
   @@map("configuracao")
 }
-
-
