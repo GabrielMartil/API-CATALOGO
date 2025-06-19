@@ -31,17 +31,21 @@ model Produtos {
   @@map("produtos")
 }
 
+enum Status {
+  on
+  off
+}
+
 model Configuracao {
   id               String    @id @default(auto()) @map("_id") @db.ObjectId
   name_loja        String
   whatsapp_num     String
-  whatsapp_status  String
   instagram_name   String
-  instagram_status String
-  link_catalogo    String
-  link_whatsapp    String
-  created_at       DateTime? @default(now())
-  updated_at       DateTime? @default(now())
+  whatsapp_status  Status
+  instagram_status Status
+  created_at       DateTime @default(now())
+  updated_at       DateTime @updatedAt
 
   @@map("configuracao")
 }
+

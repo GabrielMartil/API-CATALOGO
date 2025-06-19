@@ -1,30 +1,32 @@
 import prismaClient from "../prisma";
+import { Status } from "@prisma/client";
 
 interface CreateCustomerProps {
-  name: string,
-  valor: string,
-  categoria: string,
-  duracao: string
+  name_loja: string,
+  whatsapp_num: string,
+  instagram_name: string,
+  whatsapp_status: "on" | "off";
+  instagram_status: "on" | "off";
 }
 
-class CraeteCustomerService {
-  async execute({ name, valor, categoria, duracao }: CreateCustomerProps) {
-
-    if (!name || !valor) {
-      throw new Error("Preencha os campos Nome e Valor")
+class CreateCustomerService {
+  async execute({ name_loja, whatsapp_num, instagram_name, whatsapp_status, instagram_status }: CreateCustomerProps) {
+    if (!name_loja || !whatsapp_num) {
+      throw new Error("Preencha os campos Nome e Valor");
     }
 
-    const customer = await prismaClient.customer.create({
+    const Configuracao = await prismaClient.configuracao.create({
       data: {
-        name,
-        valor,
-        categoria,
-        duracao
-      }
-    })
+        name_loja,
+        whatsapp_num,
+        instagram_name,
+        whatsapp_status: whatsapp_status as Status, // converte string para enum
+        instagram_status: instagram_status as Status
+      },
+    });
 
-    return customer;
+    return Configuracao;
   }
 }
 
-export { CraeteCustomerService };
+export { CreateCustomerService };

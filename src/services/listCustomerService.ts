@@ -2,8 +2,8 @@ import prismaClient from "../prisma";
 
 class ListCustomerService{
   async execute(){
-    const customer = await prismaClient.produtos.findMany()
-    return customer;
+    const configuracao = await prismaClient.configuracao.findMany()
+    return configuracao;
   }
 }
 

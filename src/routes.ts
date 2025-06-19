@@ -9,14 +9,19 @@ import { LisCustomersController } from "./controllers/listCustomerController";
 import { DeleteCustomerController } from "./controllers/DeleteCustomerController";
 import { CreateProdutosController } from "./controllers/createProdutosController";
 import { LisProdutosController } from "./controllers/listaprodutosController";
+import { UpdateCustomerController } from "./controllers/UpdateCustomerController";
 
 export async function routes(fastify: FastifyInstance, options: FastifyPluginOptions) {
 
-    fastify.post("/servico", async (request: FastifyRequest, reply: FastifyReply) => {
+    fastify.post("/configuracao", async (request: FastifyRequest, reply: FastifyReply) => {
         return new CreateCustomerController().handle(request, reply)
     })
 
-    fastify.get("/servicos", async (request: FastifyRequest, reply: FastifyReply) => {
+    fastify.put("/configuracao", async (request, reply) => {
+        return new UpdateCustomerController().handle(request, reply);
+    });
+
+    fastify.get("/configuracaos", async (request: FastifyRequest, reply: FastifyReply) => {
         return new LisCustomersController().handle(request, reply)
     })
 

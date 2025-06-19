@@ -5,9 +5,9 @@ class LisCustomersController {
   async handle(request: FastifyRequest, reply: FastifyReply){
     const listCustomerService = new ListCustomerService();
 
-    const customer = await listCustomerService.execute();
+    const Configuracao = await listCustomerService.execute();
 
-    reply.send(customer);
+    reply.send(Configuracao);
   }
 
 }

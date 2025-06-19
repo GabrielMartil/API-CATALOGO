@@ -14,8 +14,8 @@ interface CreateProdutosProps {
 class CraeteProdutosService {
   async execute({ image, name, valor, memoria, bateria, categoria, condicao, descricao }: CreateProdutosProps) {
 
-    if (!name || !valor) {
-      throw new Error("Preencha os campos Nome e Valor")
+    if (!name || !valor || !memoria ) {
+      throw new Error("Preencha os campos Nome, Valor e Memoria")
     }
 
     if (!image.startsWith("data:image")) {
