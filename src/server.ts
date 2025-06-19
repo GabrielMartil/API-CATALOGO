@@ -1,6 +1,6 @@
 import fastify from "fastify";
 import cors from '@fastify/cors';
-import fastifyMultipart from 'fastify-multipart'; // Adicionar importação
+import fastifyMultipart from 'fastify-multipart';
 import { routes } from "./routes";
 
 const app = fastify({ logger: true });
@@ -11,7 +11,7 @@ app.setErrorHandler((error, request, reply) => {
 
 const start = async () => {
     await app.register(cors);
-    await app.register(fastifyMultipart); // Registrar o plugin para lidar com multipart
+    await app.register(fastifyMultipart);
     await app.register(routes);
 
     try {
