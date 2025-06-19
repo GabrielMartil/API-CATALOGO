@@ -1,6 +1,4 @@
-import { FastifyRequest, RouteGenericInterface, RawServerDefault, FastifySchema, FastifyTypeProviderDefault, FastifyBaseLogger, FastifyReply } from "fastify";
-import { ResolveFastifyRequestType } from "fastify/types/type-provider";
-import { IncomingMessage, ServerResponse } from "http";
+import { FastifyRequest, FastifyReply } from "fastify";
 import prismaClient from "../prisma";
 import { Status } from "@prisma/client";
 
@@ -19,7 +17,7 @@ class UpdateCustomerController {
       const { id, name_loja, whatsapp_num, instagram_name, whatsapp_status, instagram_status } = request.body as UpdateCustomerProps;
 
       const configuracaoAtualizada = await prismaClient.configuracao.update({
-        where: { id:"685201e7316beafa7086bed9" },
+        where: { id},
         data: {
           ...(name_loja && { name_loja }),
           ...(whatsapp_num && { whatsapp_num }),
