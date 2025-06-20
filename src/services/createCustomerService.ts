@@ -27,6 +27,8 @@ class CreateCustomerService {
         instagram_name,
         whatsapp_status,
         instagram_status,
+        link_catalogo: "",
+        link_whatsapp: "",
       },
     });
 
