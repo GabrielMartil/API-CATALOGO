@@ -43,8 +43,8 @@ model Configuracao {
   instagram_name   String
   whatsapp_status  Status
   instagram_status Status
-  created_at       DateTime @default(now())
-  updated_at       DateTime @updatedAt
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
 
   @@map("configuracao")
 }
