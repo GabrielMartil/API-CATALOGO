@@ -1,12 +1,11 @@
 import prismaClient from "../prisma";
-import { Status } from "@prisma/client";
 
 interface CreateCustomerProps {
   name_loja: string;
   whatsapp_num: string;
   instagram_name: string;
-  whatsapp_status: Status;
-  instagram_status: Status;
+  whatsapp_status: "on" | "off";
+  instagram_status: "on" | "off";
 }
 
 class CreateCustomerService {

@@ -1,14 +1,13 @@
 import { FastifyRequest, FastifyReply } from "fastify";
 import prismaClient from "../prisma";
-import { Status } from "@prisma/client";
 
 interface UpdateCustomerProps {
   id: string;
   name_loja?: string;
   whatsapp_num?: string;
   instagram_name?: string;
-  whatsapp_status?: Status;
-  instagram_status?: Status;
+  whatsapp_status?: "on" | "off";
+  instagram_status?: "on" | "off";
 }
 
 class UpdateCustomerController {
@@ -24,7 +23,7 @@ class UpdateCustomerController {
       } = request.body as UpdateCustomerProps;
 
       const configuracaoAtualizada = await prismaClient.configuracao.update({
-        where: { id: "6854a637e38f1e4a3f3331b6" },
+        where: { id: "6854a8f2f6848d1afc2026ec" },
         data: {
           ...(name_loja && { name_loja }),
           ...(whatsapp_num && { whatsapp_num }),
