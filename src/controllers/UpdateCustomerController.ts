@@ -23,7 +23,7 @@ class UpdateCustomerController {
       } = request.body as UpdateCustomerProps;
 
       const configuracaoAtualizada = await prismaClient.configuracao.update({
-        where: { id: "6854a8f2f6848d1afc2026ec" },
+        where: { id: "6854aefcff87197735ff5b6e" },
         data: {
           ...(name_loja && { name_loja }),
           ...(whatsapp_num && { whatsapp_num }),
